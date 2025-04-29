@@ -63,5 +63,54 @@
     <source src="anime4.mp4" type="video/mp4">
     Trình duyệt của bạn không hỗ trợ video.
   </video>
+
+  <audio id="bgMusic" autoplay loop muted>
+    <source src="anime4.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button id="toggleSoundBtn">🔊 Bật tiếng</button>
+
+  <!-- Con mắt và số lượt xem -->
+  <div id="viewCount">
+    <i class="fas fa-eye"></i>
+    <span id="viewNumber">0</span> lượt xem
+  </div>
+
+  <script>
+    // Kiểm tra nếu người dùng đã xem
+    if (!localStorage.getItem('hasViewed')) {
+      // Nếu chưa xem, tăng lượt xem
+      let viewCount = localStorage.getItem("viewCount") || 0; // Lấy số lượt xem từ localStorage hoặc gán 0 nếu chưa có
+      viewCount = parseInt(viewCount) + 1; // Tăng thêm lượt xem mỗi khi tải trang
+
+      // Cập nhật số lượt xem lên giao diện
+      document.getElementById("viewNumber").textContent = viewCount;
+
+      // Lưu lại số lượt xem vào localStorage
+      localStorage.setItem("viewCount", viewCount);
+
+      // Đánh dấu là đã xem trang
+      localStorage.setItem('hasViewed', 'true');
+    } else {
+      // Nếu đã xem, giữ số lượt xem hiện tại
+      let viewCount = localStorage.getItem("viewCount") || 0;
+      document.getElementById("viewNumber").textContent = viewCount;
+    }
+
+    // Xử lý bật/tắt nhạc
+    const bgMusic = document.getElementById("bgMusic");
+    const toggleBtn = document.getElementById("toggleSoundBtn");
+
+    toggleBtn.addEventListener("click", () => {
+      if (bgMusic.muted) {
+        bgMusic.muted = false;
+        bgMusic.play(); // Đảm bảo play lại sau khi bật tiếng
+        toggleBtn.textContent = "🔇 Tắt tiếng";
+      } else {
+        bgMusic.muted = true;
+        toggleBtn.textContent = "🔊 Bật tiếng";
+      }
+    });
+  </script>
 </body>
 </html>
