@@ -62,3 +62,67 @@ body {
     transform: scale(1.05);
     box-shadow: 0 0 20px #0ff;
   }
+  #unmuteBtn {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background-color: #00ffff20;
+    border: 1px solid #00ffff80;
+    color: #00ffff;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 10px;
+    cursor: pointer;
+    z-index: 9999;
+    box-shadow: 0 0 10px #0ff;
+    backdrop-filter: blur(4px);
+    transition: all 0.3s ease;
+  }
+  
+  #unmuteBtn:hover {
+    background-color: #00ffff40;
+    box-shadow: 0 0 20px #0ff;
+  }
+  #toggleSoundBtn {
+    position: fixed;
+    top: 10px;
+    right: 10px;
+    padding: 10px 15px;
+    font-size: 16px;
+    background-color: #111;
+    color: cyan;
+    border: 2px solid cyan;
+    border-radius: 8px;
+    cursor: pointer;
+    z-index: 999;
+    box-shadow: 0 0 10px cyan;
+  }
+
+  #toggleSoundBtn:hover {
+    background-color: #00ffff30;
+  }
+  #viewCount {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    font-size: 18px;
+    color: #00ffff;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    z-index: 999;
+    background-color: rgba(0, 0, 0, 0.5);
+    padding: 10px;
+    border-radius: 12px;
+    box-shadow: 0 0 10px cyan;
+    transition: background-color 0.3s ease;
+  }
+
+  #viewCount i {
+    font-size: 24px;
+  }
+
+  #viewCount:hover {
+    background-color: rgba(0, 0, 0, 0.8); /* Màu nền tối khi hover */
+    cursor: pointer;
+  }
